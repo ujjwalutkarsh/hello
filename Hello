@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Shopping App</title>
+  </head>
+  <body>
+    <div id="product-list"></div>
+    
+    <script>
+      // Define an array of products
+      const products = [
+        {
+          id: 1,
+          name: "Product 1",
+          price: 10.99,
+          image: "https://example.com/product1.jpg",
+          description: "Description of product 1"
+        },
+        {
+          id: 2,
+          name: "Product 2",
+          price: 15.99,
+          image: "https://example.com/product2.jpg",
+          description: "Description of product 2"
+        },
+        {
+          id: 3,
+          name: "Product 3",
+          price: 19.99,
+          image: "https://example.com/product3.jpg",
+          description: "Description of product 3"
+        }
+      ];
+
+      // Define a function to render products on the screen
+      function renderProducts() {
+        const productListElement = document.getElementById("product-list");
+
+        for (const product of products) {
+          const productElement = document.createElement("div");
+          productElement.classList.add("product");
+
+          const imageElement = document.createElement("img");
+          imageElement.src = product.image;
+          imageElement.alt = product.name;
+          productElement.appendChild(imageElement);
+
+          const nameElement = document.createElement("h2");
+          nameElement.textContent = product.name;
+          productElement.appendChild(nameElement);
+
+          const priceElement = document.createElement("p");
+          priceElement.textContent = `$${product.price.toFixed(2)}`;
+          productElement.appendChild(priceElement);
+
+          const descriptionElement = document.createElement("p");
+          descriptionElement.textContent = product.description;
+          productElement.appendChild(descriptionElement);
+
+          productListElement.appendChild(productElement);
+        }
+      }
+
+      // Call the renderProducts function when the page loads
+      window.addEventListener("load", renderProducts);
+    </script>
+  </body>
+</html>
